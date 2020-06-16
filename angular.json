@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gis-fe-ang9": {
+    "gisapp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gis-fe-ang9",
+            "outputPath": "dist/gisapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gis-fe-ang9:build"
+            "browserTarget": "gisapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gis-fe-ang9:build:production"
+              "browserTarget": "gisapp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gis-fe-ang9:build"
+            "browserTarget": "gisapp:build"
           }
         },
         "test": {
@@ -110,18 +110,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "gis-fe-ang9:serve"
+            "devServerTarget": "gisapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "gis-fe-ang9:serve:production"
+              "devServerTarget": "gisapp:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "gis-fe-ang9",
+  "defaultProject": "gisapp",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"
