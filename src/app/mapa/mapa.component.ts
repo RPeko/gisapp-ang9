@@ -45,15 +45,16 @@ export class MapaComponent implements OnInit {
   baseLayerControl: L.Control;
   baseMaps =
     {
-      'Open street':
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
-          {
-            // tslint:disable-next-line:max-line-length
-            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativeclmmons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox.streets',
-            accessToken: 'pk.eyJ1IjoicnBla28iLCJhIjoiY2prYXNvemtoMDBxMTNxcWYxY29lY3FndSJ9.6m8S5UFtwcWOE1e84569jQ'
-          }),
+      'Stadia outdoor':
+        L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
+          maxZoom: 20,
+          attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        }),
+      'Openstreet mapnik':
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }),
       'Esri Topo':
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
           {
@@ -84,7 +85,7 @@ export class MapaComponent implements OnInit {
   ngOnInit() {
     this.mymap = L.map('lmapa', { zoomSnap: 0.2, zoomControl: false })
       .setView(L.latLng(this.KO.centarx, this.KO.centary), this.KO.zoom);
-    this.baseMaps['Open street'].addTo(this.mymap);
+    this.baseMaps['Stadia outdoor'].addTo(this.mymap);
     this.eventEmitter.KOChange.subscribe((ko: KO) => {
       // console.log(JSON.stringify(ko));
       this.KO = ko;
