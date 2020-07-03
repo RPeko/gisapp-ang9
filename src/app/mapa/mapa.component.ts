@@ -45,22 +45,17 @@ export class MapaComponent implements OnInit {
   baseLayerControl: L.Control;
   baseMaps =
     {
-      'Stadia outdoor':
-      L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
-        maxZoom: 20,
-        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-      }),
+      'Esri Topo':
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+        {
+          // tslint:disable-next-line:max-line-length
+          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+        }),
       'Openstreet mapnik':
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 19,
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }),
-      'Esri Topo':
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
-          {
-            // tslint:disable-next-line:max-line-length
-            attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
-          }),
       'Esri World Imaginary':
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
           {
@@ -85,7 +80,7 @@ export class MapaComponent implements OnInit {
   ngOnInit() {
     this.mymap = L.map('lmapa', { zoomSnap: 0.2, zoomControl: false })
       .setView(L.latLng(this.KO.centarx, this.KO.centary), this.KO.zoom);
-    this.baseMaps['Stadia outdoor'].addTo(this.mymap);
+    this.baseMaps['Esri Topo'].addTo(this.mymap);
     this.eventEmitter.KOChange.subscribe((ko: KO) => {
       // console.log(JSON.stringify(ko));
       this.KO = ko;
