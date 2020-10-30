@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   currentKO = ' (Vrbas-grad)';
 
   listaKO: KO[] = [
-     { idKO: 7, sifraKO: '013', nazivKO: 'Vrbas-grad', rBrKO: 1, centarx: 45.57185, centary: 19.640113, zoom: 14 },
+    { idKO: 7, sifraKO: '013', nazivKO: 'Vrbas', rBrKO: 1, centarx: 45.57185, centary: 19.640113, zoom: 14 },
     { idKO: 1, sifraKO: '003', nazivKO: 'Bačko Dobro Polje', rBrKO: 3, centarx: 45.500382, centary: 19.68927, zoom: 15 },
     { idKO: 8, sifraKO: '025', nazivKO: 'Zmajevo', rBrKO: 4, centarx: 45.452394, centary: 19.688595, zoom: 15 },
     { idKO: 4, sifraKO: '016', nazivKO: 'Ravno Selo', rBrKO: 5, centarx: 45.447693, centary: 19.62254, zoom: 15 },
@@ -55,6 +55,7 @@ export class AppComponent implements OnInit {
         } else {
           this.storageMap.delete('mnLayers').subscribe();
         }
+        console.log('okida');
         this.getListaKat();
       });
     });

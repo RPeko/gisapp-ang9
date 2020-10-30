@@ -61,9 +61,7 @@ export class MapaComponent implements OnInit {
           {
             // tslint:disable-next-line:max-line-length
             attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-          }),
-      'Bez osnovne mape':
-        L.tileLayer('')
+          })
     };
 
   constructor(
