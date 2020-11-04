@@ -51,7 +51,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: 'Molimo sačekajte...',
   textColor: '#FFFFFF',
   textPosition: 'center-center',
-  maxTime: 8000,
+  maxTime: 15000,
   minTime: 0
 };
 
