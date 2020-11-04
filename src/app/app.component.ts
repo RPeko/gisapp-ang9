@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     { idKO: 4, sifraKO: '016', nazivKO: 'Ravno Selo', rBrKO: 5, centarx: 45.447693, centary: 19.62254, zoom: 15 },
     { idKO: 3, sifraKO: '007', nazivKO: 'Kucura', rBrKO: 6, centarx: 45.520522, centary: 19.589556, zoom: 15 },
     { idKO: 5, sifraKO: '012', nazivKO: 'Savino Selo', rBrKO: 7, centarx: 45.506154, centary: 19.522938, zoom: 15 },
-    { idKO: 2, sifraKO: '005', nazivKO: 'Kosančić', rBrKO: 8, centarx: 45.530898, centary: 19.453701, zoom: 15 }];
+   ];
 
 
   constructor(
