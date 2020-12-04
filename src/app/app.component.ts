@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   menuLayers: MenuLayer[] = [];
   listaKat: Kategorija[] = [];
   currentKO = ' (Vrbas-grad)';
+  poruka1 = '';
+  poruka2 = '';
 
   listaKO: KO[] = [
     { idKO: 7, sifraKO: '013', nazivKO: 'Vrbas', rBrKO: 1, centarx: 45.57185, centary: 19.640113, zoom: 14 },
@@ -55,7 +57,7 @@ export class AppComponent implements OnInit {
         } else {
           this.storageMap.delete('mnLayers').subscribe();
         }
-        console.log('okida');
+        // console.log('okida');
         this.getListaKat();
       });
     });
@@ -73,7 +75,11 @@ export class AppComponent implements OnInit {
           .forEach(subkat => this.listaKat.find(kat => kat.id === subkat.nadkateg).subkat.push(subkat));
         this.checkFromStorage();
       },
-        error => console.log('Nema konekcije!  ' + error));
+        error => {
+          console.log('Nema konekcije!  ' + error);
+          this.poruka1 = 'Zbog radova na serveru';
+          this.poruka2 = 'aplikacija trenutno nije u funkciji';
+      });
   }
 
   promeniKO(katOpst: KO) {
