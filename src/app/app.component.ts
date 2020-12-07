@@ -75,11 +75,8 @@ export class AppComponent implements OnInit {
           .forEach(subkat => this.listaKat.find(kat => kat.id === subkat.nadkateg).subkat.push(subkat));
         this.checkFromStorage();
       },
-        error => {
-          console.log('Nema konekcije!  ' + error);
-          this.poruka1 = 'Zbog radova na serveru';
-          this.poruka2 = 'aplikacija trenutno nije u funkciji';
-      });
+        error => console.log('Nema konekcije!  ' + error)
+        );
   }
 
   promeniKO(katOpst: KO) {

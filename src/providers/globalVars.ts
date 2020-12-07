@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GlobalVars {
   // baseURL = 'http://localhost:8080';
-  baseURL = 'http://178.222.245.73:8070/gis-vrbas-2.0.5';
+  baseURL = 'http://79.101.21.143:8070/gis-vrbas-2.0.5';
 
   constructor() {
   }
