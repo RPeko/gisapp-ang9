@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Rasveta } from '../models/rasveta';
 import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
@@ -35,8 +36,10 @@ export class RasvetaService {
             }),
             params
             };
-        return this.http.get<Rasveta[]>(listaUrl,  httpOptions)
-             .pipe(retry(1));
+        return this.http.get<Rasveta[]>(this.globalVars.baseURL + '/rasveta/listarasvete',  httpOptions)
+        .pipe(retry(1), catchError(err => {
+            return this.http.get<Rasveta[]>(this.globalVars.baseURL1 + '/layers/listarasvete',  httpOptions);
+         }));
     }
 
     icon(kol: number, zoom: number): string {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Poligon } from '../models/poligon';
 import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
@@ -46,8 +47,10 @@ export class PoligoniService {
             };
         // console.log(JSON.stringify(httpOptions));
 
-        return this.http.get<Poligon[]>(listaUrl,  httpOptions)
-             .pipe(retry(1));
+        return this.http.get<Poligon[]>(this.globalVars.baseURL + '/layers/poligoni',  httpOptions)
+        .pipe(retry(1), catchError(err => {
+            return this.http.get<Poligon[]>(this.globalVars.baseURL1 + '/layers/poligoni',  httpOptions);
+         }));
     }
 
     pripadaKO(poligon: Poligon, ko: KO) {

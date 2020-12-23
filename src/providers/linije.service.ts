@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
 import { Linija } from '../models/linija';
@@ -38,8 +39,10 @@ export class LinijeService {
             }),
             params
             };
-        return this.http.get<Linija[]>(listaUrl,  httpOptions)
-             .pipe(retry(1));
+        return this.http.get<Linija[]>(this.globalVars.baseURL + '/layers/linije',  httpOptions)
+             .pipe(retry(1), catchError(err => {
+                return this.http.get<Linija[]>(this.globalVars.baseURL1 + '/layers/linije',  httpOptions);
+             }));
     }
 
     pripadaKO(linija: Linija, ko: KO) {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Tacka } from '../models/tacka';
 import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
@@ -36,8 +37,10 @@ export class TackeService {
             }),
             params
         };
-        return this.http.get<Tacka[]>(listaUrl, httpOptions)
-            .pipe(retry(1));
+        return this.http.get<Tacka[]>(this.globalVars.baseURL + '/layers/tacke', httpOptions)
+        .pipe(retry(1), catchError(err => {
+            return this.http.get<Tacka[]>(this.globalVars.baseURL1 + '/layers/tacke',  httpOptions);
+         }));
     }
 
     pripadaKO(tacka: Tacka, ko: KO) {

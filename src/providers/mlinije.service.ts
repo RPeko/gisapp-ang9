@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
 import { MLinija } from '../models/mlinija';
@@ -39,7 +40,9 @@ filterUlica = '';
             }),
             params
             };
-        return this.http.get<MLinija[]>(listaUrl,  httpOptions)
-             .pipe(retry(1));
+        return this.http.get<MLinija[]>(this.globalVars.baseURL + '/layers/linije',  httpOptions)
+        .pipe(retry(1), catchError(err => {
+            return this.http.get<MLinija[]>(this.globalVars.baseURL1 + '/layers/linije',  httpOptions);
+         }));
     }
 }

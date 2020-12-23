@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { KO } from '../models/ko';
 import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
@@ -22,8 +23,10 @@ export class KOService {
             })
             };
 
-        return this.http.get<KO[]>(listaKOUrl,  httpOptions)
-            .pipe(retry(1));
+        return this.http.get<KO[]>(this.globalVars.baseURL + '/api/listako',  httpOptions)
+        .pipe(retry(1), catchError(err => {
+            return this.http.get<KO[]>(this.globalVars.baseURL1 + '/layers/listako',  httpOptions).pipe(retry(1));
+        }));
     }
 
 
@@ -41,7 +44,9 @@ export class KOService {
             params:  new HttpParams().set('id', '' + id)
             };
 
-        return this.http.get<KO>(KOUrl,  httpOptions)
-        .pipe(retry(1));
+        return this.http.get<KO>(this.globalVars.baseURL + '/api/ko',  httpOptions)
+        .pipe(retry(1), catchError(err => {
+            return this.http.get<KO>(this.globalVars.baseURL1 + '/api/ko',  httpOptions);
+        }));
     }
 }
