@@ -5,7 +5,6 @@ import { MapaComponent } from './mapa/mapa.component';
 const routes: Routes = [
   { path: '', redirectTo: '/mapa', pathMatch: 'full' },
   { path: 'mapa', component: MapaComponent },
-  { path: 'cpanel', redirectTo: '' },
   { path: '**', redirectTo: '/mapa', pathMatch: 'full' }
 ];
 
