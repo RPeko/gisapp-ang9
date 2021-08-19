@@ -175,7 +175,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: '/mapa', pathMatch: 'full' },
-    { path: 'mapa', component: _mapa_mapa_component__WEBPACK_IMPORTED_MODULE_2__["MapaComponent"] }
+    { path: 'mapa', component: _mapa_mapa_component__WEBPACK_IMPORTED_MODULE_2__["MapaComponent"] },
+    { path: '**', redirectTo: '/mapa', pathMatch: 'full' }
 ];
 class AppRoutingModule {
 }
@@ -509,14 +510,15 @@ class AppComponent {
         this.menuLayers = [];
         this.listaKat = [];
         this.currentKO = ' (Vrbas-grad)';
+        this.poruka1 = '';
+        this.poruka2 = '';
         this.listaKO = [
-            { idKO: 7, sifraKO: '013', nazivKO: 'Vrbas-grad', rBrKO: 1, centarx: 45.57185, centary: 19.640113, zoom: 14 },
+            { idKO: 7, sifraKO: '013', nazivKO: 'Vrbas', rBrKO: 1, centarx: 45.57185, centary: 19.640113, zoom: 14 },
             { idKO: 1, sifraKO: '003', nazivKO: 'Bačko Dobro Polje', rBrKO: 3, centarx: 45.500382, centary: 19.68927, zoom: 15 },
             { idKO: 8, sifraKO: '025', nazivKO: 'Zmajevo', rBrKO: 4, centarx: 45.452394, centary: 19.688595, zoom: 15 },
             { idKO: 4, sifraKO: '016', nazivKO: 'Ravno Selo', rBrKO: 5, centarx: 45.447693, centary: 19.62254, zoom: 15 },
             { idKO: 3, sifraKO: '007', nazivKO: 'Kucura', rBrKO: 6, centarx: 45.520522, centary: 19.589556, zoom: 15 },
             { idKO: 5, sifraKO: '012', nazivKO: 'Savino Selo', rBrKO: 7, centarx: 45.506154, centary: 19.522938, zoom: 15 },
-            { idKO: 2, sifraKO: '005', nazivKO: 'Kosančić', rBrKO: 8, centarx: 45.530898, centary: 19.453701, zoom: 15 }
         ];
     }
     ngOnInit() {
@@ -533,6 +535,7 @@ class AppComponent {
                 else {
                     this.storageMap.delete('mnLayers').subscribe();
                 }
+                // console.log('okida');
                 this.getListaKat();
             });
         });
@@ -786,14 +789,14 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matMenuTriggerFor", _r2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("promeni k.o.", ctx.currentKO, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("promeni naselje ", ctx.currentKO, " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.listaKat);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.listaKO);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](14);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !_r0.opened);
-    } }, directives: [ngx_ui_loader__WEBPACK_IMPORTED_MODULE_4__["ɵb"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__["MatDrawerContainer"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__["MatDrawer"], _angular_material_button__WEBPACK_IMPORTED_MODULE_7__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIcon"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_9__["MatMenuTrigger"], _angular_material_list__WEBPACK_IMPORTED_MODULE_10__["MatListSubheaderCssMatStyler"], _angular_material_list__WEBPACK_IMPORTED_MODULE_10__["MatList"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgForOf"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_9__["_MatMenu"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__["MatDrawerContent"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["RouterOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _angular_material_list__WEBPACK_IMPORTED_MODULE_10__["MatListIconCssMatStyler"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgTemplateOutlet"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_9__["MatMenuItem"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatLabel"], _angular_material_input__WEBPACK_IMPORTED_MODULE_14__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["NgModel"], _angular_material_list__WEBPACK_IMPORTED_MODULE_10__["MatListItem"], _angular_material_core__WEBPACK_IMPORTED_MODULE_16__["MatLine"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgStyle"]], styles: [".hideSideNavBtn[_ngcontent-%COMP%] {\n  float: right;\n}\n\n.meni-ko[_ngcontent-%COMP%] {\n  padding-top: 30px;\n}\n\n.btn-sloj[_ngcontent-%COMP%] {\n  width: 230px !important;\n  text-align: left;\n}\n\n.mn-slojevi[_ngcontent-%COMP%] {\n  height: 32px;\n  float: left !important;\n}\n\n.btn-legend[_ngcontent-%COMP%] {\n  float: right;\n  width: 20px !important;\n}\n\n.mapa-container[_ngcontent-%COMP%] {\n  padding-top: 2px;\n}\n\n.ukloni-slojeve[_ngcontent-%COMP%] {\n  padding-top: 80px !important;\n}\n\n.subkat[_ngcontent-%COMP%] {\n  padding-left: 15px;\n}\n\n.searchfield[_ngcontent-%COMP%] {\n  font-size: small;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n\n.showSideNavContainer[_ngcontent-%COMP%] {\n  position: absolute;\n  padding-top: 5px;\n}\n\n.showSideNavBtn[_ngcontent-%COMP%] {\n  position: absolute;\n  z-index: 999;\n}\n\n.ogranicenje[_ngcontent-%COMP%] {\n  padding-left: 20px;\n  padding-top: 50px;\n  font-size: x-small;\n  color: gray;\n}\n\n  .mat-form-field-appearance-outline .mat-form-field-outline {\n  padding-top: 12px;\n  height: 60% !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxwZWtvLnJvZ2Fub3ZpY1xcRGVza3RvcFxcQW5ndWxhciBwcm9qZWN0c1xcZ2lzYXBwLWFuZzkvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQ0NKOztBREVBO0VBQ0ksaUJBQUE7QUNDSjs7QURFQTtFQUNJLHVCQUFBO0VBQ0EsZ0JBQUE7QUNDSjs7QURFQTtFQUNJLFlBQUE7RUFDQSxzQkFBQTtBQ0NKOztBREVBO0VBQ0ksWUFBQTtFQUNBLHNCQUFBO0FDQ0o7O0FERUE7RUFDSSxnQkFBQTtBQ0NKOztBREVBO0VBQ0ksNEJBQUE7QUNDSjs7QURFQTtFQUNJLGtCQUFBO0FDQ0o7O0FERUE7RUFDSSxnQkFBQTtFQUNBLDJCQUFBO0VBQUEsd0JBQUE7RUFBQSxtQkFBQTtBQ0NKOztBREVBO0VBQ0ksa0JBQUE7RUFDQSxnQkFBQTtBQ0NKOztBREVBO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0FDQ0o7O0FERUE7RUFDSSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0FDQ0o7O0FERUE7RUFDRSxpQkFBQTtFQUNBLHNCQUFBO0FDQ0YiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGlkZVNpZGVOYXZCdG4ge1xyXG4gICAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG4ubWVuaS1rbyB7XHJcbiAgICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG5cclxuLmJ0bi1zbG9qIHtcclxuICAgIHdpZHRoOiAyMzBweCAhaW1wb3J0YW50O1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxufVxyXG5cclxuLm1uLXNsb2pldmkge1xyXG4gICAgaGVpZ2h0OiAzMnB4O1xyXG4gICAgZmxvYXQ6IGxlZnQgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmJ0bi1sZWdlbmQge1xyXG4gICAgZmxvYXQ6IHJpZ2h0O1xyXG4gICAgd2lkdGg6IDIwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1hcGEtY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmctdG9wOjJweDtcclxufVxyXG5cclxuLnVrbG9uaS1zbG9qZXZlIHtcclxuICAgIHBhZGRpbmctdG9wOiA4MHB4IWltcG9ydGFudDtcclxufVxyXG5cclxuLnN1YmthdCB7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDE1cHg7XHJcbn1cclxuXHJcbi5zZWFyY2hmaWVsZCB7XHJcbiAgICBmb250LXNpemU6IHNtYWxsO1xyXG4gICAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxufVxyXG5cclxuLnNob3dTaWRlTmF2Q29udGFpbmVyIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHBhZGRpbmctdG9wOiA1cHg7XHJcbn1cclxuXHJcbi5zaG93U2lkZU5hdkJ0biB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB6LWluZGV4Ojk5OTtcclxufVxyXG5cclxuLm9ncmFuaWNlbmplIHtcclxuICAgIHBhZGRpbmctbGVmdDogMjBweDtcclxuICAgIHBhZGRpbmctdG9wOiA1MHB4O1xyXG4gICAgZm9udC1zaXplOiB4LXNtYWxsO1xyXG4gICAgY29sb3I6IGdyYXk7XHJcbn1cclxuXHJcbjo6bmctZGVlcCAubWF0LWZvcm0tZmllbGQtYXBwZWFyYW5jZS1vdXRsaW5lIC5tYXQtZm9ybS1maWVsZC1vdXRsaW5lIHtcclxuICBwYWRkaW5nLXRvcDogMTJweDtcclxuICBoZWlnaHQ6IDYwJSAhaW1wb3J0YW50O1xyXG59XHJcbiIsIi5oaWRlU2lkZU5hdkJ0biB7XG4gIGZsb2F0OiByaWdodDtcbn1cblxuLm1lbmkta28ge1xuICBwYWRkaW5nLXRvcDogMzBweDtcbn1cblxuLmJ0bi1zbG9qIHtcbiAgd2lkdGg6IDIzMHB4ICFpbXBvcnRhbnQ7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG59XG5cbi5tbi1zbG9qZXZpIHtcbiAgaGVpZ2h0OiAzMnB4O1xuICBmbG9hdDogbGVmdCAhaW1wb3J0YW50O1xufVxuXG4uYnRuLWxlZ2VuZCB7XG4gIGZsb2F0OiByaWdodDtcbiAgd2lkdGg6IDIwcHggIWltcG9ydGFudDtcbn1cblxuLm1hcGEtY29udGFpbmVyIHtcbiAgcGFkZGluZy10b3A6IDJweDtcbn1cblxuLnVrbG9uaS1zbG9qZXZlIHtcbiAgcGFkZGluZy10b3A6IDgwcHggIWltcG9ydGFudDtcbn1cblxuLnN1YmthdCB7XG4gIHBhZGRpbmctbGVmdDogMTVweDtcbn1cblxuLnNlYXJjaGZpZWxkIHtcbiAgZm9udC1zaXplOiBzbWFsbDtcbiAgaGVpZ2h0OiBmaXQtY29udGVudDtcbn1cblxuLnNob3dTaWRlTmF2Q29udGFpbmVyIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBwYWRkaW5nLXRvcDogNXB4O1xufVxuXG4uc2hvd1NpZGVOYXZCdG4ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHotaW5kZXg6IDk5OTtcbn1cblxuLm9ncmFuaWNlbmplIHtcbiAgcGFkZGluZy1sZWZ0OiAyMHB4O1xuICBwYWRkaW5nLXRvcDogNTBweDtcbiAgZm9udC1zaXplOiB4LXNtYWxsO1xuICBjb2xvcjogZ3JheTtcbn1cblxuOjpuZy1kZWVwIC5tYXQtZm9ybS1maWVsZC1hcHBlYXJhbmNlLW91dGxpbmUgLm1hdC1mb3JtLWZpZWxkLW91dGxpbmUge1xuICBwYWRkaW5nLXRvcDogMTJweDtcbiAgaGVpZ2h0OiA2MCUgIWltcG9ydGFudDtcbn0iXX0= */"] });
+    } }, directives: [ngx_ui_loader__WEBPACK_IMPORTED_MODULE_4__["ɵb"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__["MatDrawerContainer"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__["MatDrawer"], _angular_material_button__WEBPACK_IMPORTED_MODULE_7__["MatButton"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_8__["MatIcon"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_9__["MatMenuTrigger"], _angular_material_list__WEBPACK_IMPORTED_MODULE_10__["MatListSubheaderCssMatStyler"], _angular_material_list__WEBPACK_IMPORTED_MODULE_10__["MatList"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgForOf"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_9__["_MatMenu"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__["MatDrawerContent"], _angular_router__WEBPACK_IMPORTED_MODULE_12__["RouterOutlet"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _angular_material_list__WEBPACK_IMPORTED_MODULE_10__["MatListIconCssMatStyler"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgTemplateOutlet"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_9__["MatMenuItem"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatFormField"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_13__["MatLabel"], _angular_material_input__WEBPACK_IMPORTED_MODULE_14__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_15__["NgModel"], _angular_material_list__WEBPACK_IMPORTED_MODULE_10__["MatListItem"], _angular_material_core__WEBPACK_IMPORTED_MODULE_16__["MatLine"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgStyle"]], styles: [".hideSideNavBtn[_ngcontent-%COMP%] {\n  float: right;\n}\n\n.meni-ko[_ngcontent-%COMP%] {\n  padding-top: 30px;\n}\n\n.btn-sloj[_ngcontent-%COMP%] {\n  width: 230px !important;\n  text-align: left;\n}\n\n.mn-slojevi[_ngcontent-%COMP%] {\n  height: 32px;\n  float: left !important;\n}\n\n.btn-legend[_ngcontent-%COMP%] {\n  float: right;\n  width: 20px !important;\n}\n\n.mapa-container[_ngcontent-%COMP%] {\n  padding-top: 2px;\n}\n\n.ukloni-slojeve[_ngcontent-%COMP%] {\n  padding-top: 80px !important;\n}\n\n.subkat[_ngcontent-%COMP%] {\n  padding-left: 15px;\n}\n\n.searchfield[_ngcontent-%COMP%] {\n  font-size: small;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n}\n\n.showSideNavContainer[_ngcontent-%COMP%] {\n  position: absolute;\n  padding-top: 5px;\n}\n\n.showSideNavBtn[_ngcontent-%COMP%] {\n  position: absolute;\n  z-index: 999;\n}\n\n.ogranicenje[_ngcontent-%COMP%] {\n  padding-left: 20px;\n  padding-top: 50px;\n  font-size: x-small;\n  color: gray;\n}\n\n  .mat-form-field-appearance-outline .mat-form-field-outline {\n  padding-top: 12px;\n  height: 60% !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxwZWtvLnJvZ2Fub3ZpY1xcRGVza3RvcFxcQW5ndWxhciBwcm9qZWN0c1xcZ2lzYXBwLWFuZzkvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQ0NKOztBREVBO0VBQ0ksaUJBQUE7QUNDSjs7QURFQTtFQUNJLHVCQUFBO0VBQ0EsZ0JBQUE7QUNDSjs7QURFQTtFQUNJLFlBQUE7RUFDQSxzQkFBQTtBQ0NKOztBREVBO0VBQ0ksWUFBQTtFQUNBLHNCQUFBO0FDQ0o7O0FERUE7RUFDSSxnQkFBQTtBQ0NKOztBREVBO0VBQ0ksNEJBQUE7QUNDSjs7QURFQTtFQUNJLGtCQUFBO0FDQ0o7O0FERUE7RUFDSSxnQkFBQTtFQUNBLDJCQUFBO0VBQUEsd0JBQUE7RUFBQSxtQkFBQTtBQ0NKOztBREVBO0VBQ0ksa0JBQUE7RUFDQSxnQkFBQTtBQ0NKOztBREVBO0VBQ0ksa0JBQUE7RUFDQSxZQUFBO0FDQ0o7O0FERUE7RUFDSSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0FDQ0o7O0FER0E7RUFDRSxpQkFBQTtFQUNBLHNCQUFBO0FDQUYiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGlkZVNpZGVOYXZCdG4ge1xyXG4gICAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG4ubWVuaS1rbyB7XHJcbiAgICBwYWRkaW5nLXRvcDogMzBweDtcclxufVxyXG5cclxuLmJ0bi1zbG9qIHtcclxuICAgIHdpZHRoOiAyMzBweCAhaW1wb3J0YW50O1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxufVxyXG5cclxuLm1uLXNsb2pldmkge1xyXG4gICAgaGVpZ2h0OiAzMnB4O1xyXG4gICAgZmxvYXQ6IGxlZnQgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmJ0bi1sZWdlbmQge1xyXG4gICAgZmxvYXQ6IHJpZ2h0O1xyXG4gICAgd2lkdGg6IDIwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1hcGEtY29udGFpbmVyIHtcclxuICAgIHBhZGRpbmctdG9wOjJweDtcclxufVxyXG5cclxuLnVrbG9uaS1zbG9qZXZlIHtcclxuICAgIHBhZGRpbmctdG9wOiA4MHB4IWltcG9ydGFudDtcclxufVxyXG5cclxuLnN1YmthdCB7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDE1cHg7XHJcbn1cclxuXHJcbi5zZWFyY2hmaWVsZCB7XHJcbiAgICBmb250LXNpemU6IHNtYWxsO1xyXG4gICAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxufVxyXG5cclxuLnNob3dTaWRlTmF2Q29udGFpbmVyIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHBhZGRpbmctdG9wOiA1cHg7XHJcbn1cclxuXHJcbi5zaG93U2lkZU5hdkJ0biB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB6LWluZGV4Ojk5OTtcclxufVxyXG5cclxuLm9ncmFuaWNlbmplIHtcclxuICAgIHBhZGRpbmctbGVmdDogMjBweDtcclxuICAgIHBhZGRpbmctdG9wOiA1MHB4O1xyXG4gICAgZm9udC1zaXplOiB4LXNtYWxsO1xyXG4gICAgY29sb3I6IGdyYXk7XHJcbn1cclxuXHJcblxyXG46Om5nLWRlZXAgLm1hdC1mb3JtLWZpZWxkLWFwcGVhcmFuY2Utb3V0bGluZSAubWF0LWZvcm0tZmllbGQtb3V0bGluZSB7XHJcbiAgcGFkZGluZy10b3A6IDEycHg7XHJcbiAgaGVpZ2h0OiA2MCUgIWltcG9ydGFudDtcclxufVxyXG4iLCIuaGlkZVNpZGVOYXZCdG4ge1xuICBmbG9hdDogcmlnaHQ7XG59XG5cbi5tZW5pLWtvIHtcbiAgcGFkZGluZy10b3A6IDMwcHg7XG59XG5cbi5idG4tc2xvaiB7XG4gIHdpZHRoOiAyMzBweCAhaW1wb3J0YW50O1xuICB0ZXh0LWFsaWduOiBsZWZ0O1xufVxuXG4ubW4tc2xvamV2aSB7XG4gIGhlaWdodDogMzJweDtcbiAgZmxvYXQ6IGxlZnQgIWltcG9ydGFudDtcbn1cblxuLmJ0bi1sZWdlbmQge1xuICBmbG9hdDogcmlnaHQ7XG4gIHdpZHRoOiAyMHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5tYXBhLWNvbnRhaW5lciB7XG4gIHBhZGRpbmctdG9wOiAycHg7XG59XG5cbi51a2xvbmktc2xvamV2ZSB7XG4gIHBhZGRpbmctdG9wOiA4MHB4ICFpbXBvcnRhbnQ7XG59XG5cbi5zdWJrYXQge1xuICBwYWRkaW5nLWxlZnQ6IDE1cHg7XG59XG5cbi5zZWFyY2hmaWVsZCB7XG4gIGZvbnQtc2l6ZTogc21hbGw7XG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XG59XG5cbi5zaG93U2lkZU5hdkNvbnRhaW5lciB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcGFkZGluZy10b3A6IDVweDtcbn1cblxuLnNob3dTaWRlTmF2QnRuIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB6LWluZGV4OiA5OTk7XG59XG5cbi5vZ3JhbmljZW5qZSB7XG4gIHBhZGRpbmctbGVmdDogMjBweDtcbiAgcGFkZGluZy10b3A6IDUwcHg7XG4gIGZvbnQtc2l6ZTogeC1zbWFsbDtcbiAgY29sb3I6IGdyYXk7XG59XG5cbjo6bmctZGVlcCAubWF0LWZvcm0tZmllbGQtYXBwZWFyYW5jZS1vdXRsaW5lIC5tYXQtZm9ybS1maWVsZC1vdXRsaW5lIHtcbiAgcGFkZGluZy10b3A6IDEycHg7XG4gIGhlaWdodDogNjAlICFpbXBvcnRhbnQ7XG59Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -893,7 +896,7 @@ const ngxUiLoaderConfig = {
     text: 'Molimo sačekajte...',
     textColor: '#FFFFFF',
     textPosition: 'center-center',
-    maxTime: 8000,
+    maxTime: 0,
     minTime: 0
 };
 class AppModule {
@@ -1380,28 +1383,24 @@ class MapaComponent {
         this.rasvetaMarkers = leaflet__WEBPACK_IMPORTED_MODULE_1__["markerClusterGroup"]({ disableClusteringAtZoom: 18 });
         this.loadedLayers = [];
         this.baseMaps = {
-            'Open street': leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                // tslint:disable-next-line:max-line-length
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativeclmmons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                maxZoom: 18,
-                id: 'mapbox.streets',
-                accessToken: 'pk.eyJ1IjoicnBla28iLCJhIjoiY2prYXNvemtoMDBxMTNxcWYxY29lY3FndSJ9.6m8S5UFtwcWOE1e84569jQ'
-            }),
             'Esri Topo': leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
                 // tslint:disable-next-line:max-line-length
                 attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
             }),
+            'Openstreet mapnik': leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }),
             'Esri World Imaginary': leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
                 // tslint:disable-next-line:max-line-length
                 attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-            }),
-            'Bez osnovne mape': leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('')
+            })
         };
     }
     ngOnInit() {
         this.mymap = leaflet__WEBPACK_IMPORTED_MODULE_1__["map"]('lmapa', { zoomSnap: 0.2, zoomControl: false })
             .setView(leaflet__WEBPACK_IMPORTED_MODULE_1__["latLng"](this.KO.centarx, this.KO.centary), this.KO.zoom);
-        this.baseMaps['Open street'].addTo(this.mymap);
+        this.baseMaps['Esri Topo'].addTo(this.mymap);
         this.eventEmitter.KOChange.subscribe((ko) => {
             // console.log(JSON.stringify(ko));
             this.KO = ko;
@@ -2043,9 +2042,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 class GlobalVars {
+    // baseURL1 = 'http://93.87.76.62:8080/gis-3.0.1';// lokalna adresa
+    // baseURL1 = 'https://93.87.76.62:8081';
     constructor() {
         // baseURL = 'http://localhost:8080';
-        this.baseURL = 'http://178.222.245.73:8070/gis-vrbas-2.0.3';
+        // baseURL1 = 'http://localhost:8080';
+        // baseURL = 'https://vgis21.herokuapp.com';
+        // baseURL1 = 'https://vgis21.herokuapp.com';
+        // baseURL = 'http://79.101.21.143:8070/gis-vrbas-2.1.2';
+        // baseURL = 'https://93.87.76.62:8081';
+        // baseURL1 = 'http://192.168.69.21:8070/gis-vrbas-2.1.2'; // lokalna adresa
+        // baseURL1 = 'https://93.87.76.62:8081';
+        this.baseURL = 'https://www.vrbasgis.net:8080/gis-3.0.1';
+        // baseURL = 'https://93.87.76.62:8081';
+        this.baseURL1 = 'https://www.vrbasgis.net:8080/gis-3.0.1'; // lokalna adresa
     }
     setBaseURL(value) {
         this.baseURL = value;
@@ -2083,13 +2093,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class KategorijaService {
     constructor(http, globalVars) {
         this.http = http;
         this.globalVars = globalVars;
     }
     getKategorije() {
-        const listaUrl = this.globalVars.baseURL + '/layers/kategorije';
         const httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -2098,8 +2108,10 @@ class KategorijaService {
                 'Access-Control-Allow-Origin': '*'
             })
         };
-        return this.http.get(listaUrl, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        return this.http.get(this.globalVars.baseURL + '/layers/kategorije', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => {
+            return this.http.get(this.globalVars.baseURL1 + '/layers/kategorije', httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        }));
     }
 }
 KategorijaService.ɵfac = function KategorijaService_Factory(t) { return new (t || KategorijaService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_globalVars__WEBPACK_IMPORTED_MODULE_3__["GlobalVars"])); };
@@ -2131,6 +2143,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class KOService {
     constructor(http, globalVars) {
         this.http = http;
@@ -2146,8 +2159,10 @@ class KOService {
                 'Access-Control-Allow-Origin': '*'
             })
         };
-        return this.http.get(listaKOUrl, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        return this.http.get(this.globalVars.baseURL + '/api/listako', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => {
+            return this.http.get(this.globalVars.baseURL1 + '/layers/listako', httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        }));
     }
     getKO(id) {
         const KOUrl = this.globalVars.baseURL + '/api/ko';
@@ -2162,8 +2177,10 @@ class KOService {
             }),
             params: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]().set('id', '' + id)
         };
-        return this.http.get(KOUrl, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        return this.http.get(this.globalVars.baseURL + '/api/ko', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => {
+            return this.http.get(this.globalVars.baseURL1 + '/api/ko', httpOptions);
+        }));
     }
 }
 KOService.ɵfac = function KOService_Factory(t) { return new (t || KOService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_globalVars__WEBPACK_IMPORTED_MODULE_3__["GlobalVars"])); };
@@ -2189,6 +2206,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _globalVars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globalVars */ "./src/providers/globalVars.ts");
+
 
 
 
@@ -2226,8 +2244,10 @@ class LinijeService {
             }),
             params
         };
-        return this.http.get(listaUrl, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        return this.http.get(this.globalVars.baseURL + '/layers/linije', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => {
+            return this.http.get(this.globalVars.baseURL1 + '/layers/linije', httpOptions);
+        }));
     }
     pripadaKO(linija, ko) {
         let res = false;
@@ -2279,6 +2299,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class MLinijeService {
     constructor(http, globalVars) {
         this.http = http;
@@ -2311,8 +2332,10 @@ class MLinijeService {
             }),
             params
         };
-        return this.http.get(listaUrl, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        return this.http.get(this.globalVars.baseURL + '/layers/linije', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => {
+            return this.http.get(this.globalVars.baseURL1 + '/layers/linije', httpOptions);
+        }));
     }
 }
 MLinijeService.ɵfac = function MLinijeService_Factory(t) { return new (t || MLinijeService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_globalVars__WEBPACK_IMPORTED_MODULE_3__["GlobalVars"])); };
@@ -2338,6 +2361,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _globalVars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./globalVars */ "./src/providers/globalVars.ts");
+
 
 
 
@@ -2383,8 +2407,10 @@ class PoligoniService {
             params
         };
         // console.log(JSON.stringify(httpOptions));
-        return this.http.get(listaUrl, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        return this.http.get(this.globalVars.baseURL + '/layers/poligoni', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => {
+            return this.http.get(this.globalVars.baseURL1 + '/layers/poligoni', httpOptions);
+        }));
     }
     pripadaKO(poligon, ko) {
         let res = false;
@@ -2436,6 +2462,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class RasvetaService {
     constructor(http, globalVars) {
         this.http = http;
@@ -2465,8 +2492,10 @@ class RasvetaService {
             }),
             params
         };
-        return this.http.get(listaUrl, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        return this.http.get(this.globalVars.baseURL + '/rasveta/listarasvete', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => {
+            return this.http.get(this.globalVars.baseURL1 + '/layers/listarasvete', httpOptions);
+        }));
     }
     icon(kol, zoom) {
         if (kol == null || kol === 0) {
@@ -2527,6 +2556,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class TackeService {
     constructor(http, globalVars) {
         this.http = http;
@@ -2558,8 +2588,10 @@ class TackeService {
             }),
             params
         };
-        return this.http.get(listaUrl, httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1));
+        return this.http.get(this.globalVars.baseURL + '/layers/tacke', httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(err => {
+            return this.http.get(this.globalVars.baseURL1 + '/layers/tacke', httpOptions);
+        }));
     }
     pripadaKO(tacka, ko) {
         let res = false;
