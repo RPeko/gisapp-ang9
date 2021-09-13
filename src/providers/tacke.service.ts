@@ -37,10 +37,7 @@ export class TackeService {
             }),
             params
         };
-        return this.http.get<Tacka[]>(this.globalVars.baseURL + '/layers/tacke', httpOptions)
-        .pipe(retry(1), catchError(err => {
-            return this.http.get<Tacka[]>(this.globalVars.baseURL1 + '/layers/tacke',  httpOptions);
-         }));
+        return this.http.get<Tacka[]>(this.globalVars.baseURL + '/layers/tacke', httpOptions);
     }
 
     pripadaKO(tacka: Tacka, ko: KO) {

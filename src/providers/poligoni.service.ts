@@ -47,10 +47,7 @@ export class PoligoniService {
             };
         // console.log(JSON.stringify(httpOptions));
 
-        return this.http.get<Poligon[]>(this.globalVars.baseURL + '/layers/poligoni',  httpOptions)
-        .pipe(retry(1), catchError(err => {
-            return this.http.get<Poligon[]>(this.globalVars.baseURL1 + '/layers/poligoni',  httpOptions);
-         }));
+        return this.http.get<Poligon[]>(this.globalVars.baseURL + '/layers/poligoni',  httpOptions);
     }
 
     pripadaKO(poligon: Poligon, ko: KO) {

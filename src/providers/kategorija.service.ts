@@ -20,9 +20,6 @@ export class KategorijaService {
                 'Access-Control-Allow-Origin': '*'
             })
             };
-        return this.http.get<Kategorija[]>(this.globalVars.baseURL + '/layers/kategorije',  httpOptions)
-            .pipe(retry(1), catchError(err => {
-                return this.http.get<Kategorija[]>(this.globalVars.baseURL1 + '/layers/kategorije',  httpOptions).pipe(retry(1));
-            }));
+        return this.http.get<Kategorija[]>(this.globalVars.baseURL + '/layers/kategorije',  httpOptions);
     }
 }

@@ -39,10 +39,7 @@ export class LinijeService {
             }),
             params
             };
-        return this.http.get<Linija[]>(this.globalVars.baseURL + '/layers/linije',  httpOptions)
-             .pipe(retry(1), catchError(err => {
-                return this.http.get<Linija[]>(this.globalVars.baseURL1 + '/layers/linije',  httpOptions);
-             }));
+        return this.http.get<Linija[]>(this.globalVars.baseURL + '/layers/linije',  httpOptions);
     }
 
     pripadaKO(linija: Linija, ko: KO) {

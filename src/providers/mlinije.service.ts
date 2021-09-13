@@ -40,9 +40,6 @@ filterUlica = '';
             }),
             params
             };
-        return this.http.get<MLinija[]>(this.globalVars.baseURL + '/layers/linije',  httpOptions)
-        .pipe(retry(1), catchError(err => {
-            return this.http.get<MLinija[]>(this.globalVars.baseURL1 + '/layers/linije',  httpOptions);
-         }));
+        return this.http.get<MLinija[]>(this.globalVars.baseURL + '/layers/linije',  httpOptions);
     }
 }

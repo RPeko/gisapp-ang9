@@ -36,10 +36,7 @@ export class RasvetaService {
             }),
             params
             };
-        return this.http.get<Rasveta[]>(this.globalVars.baseURL + '/rasveta/listarasvete',  httpOptions)
-        .pipe(retry(1), catchError(err => {
-            return this.http.get<Rasveta[]>(this.globalVars.baseURL1 + '/layers/listarasvete',  httpOptions);
-         }));
+        return this.http.get<Rasveta[]>(this.globalVars.baseURL + '/rasveta/listarasvete',  httpOptions);
     }
 
     icon(kol: number, zoom: number): string {
