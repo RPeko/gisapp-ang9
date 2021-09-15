@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Rasveta } from '../models/rasveta';
-import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
 import { Layer } from 'src/models/layer';
 

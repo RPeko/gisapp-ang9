@@ -1,4 +1,8 @@
-#lmapa { 
+.map-container {
+  right: 0;
+}
+
+.lmapa { 
     height: 98vh;
 }
 
@@ -36,8 +40,3 @@
   .leaflet-tooltip-right.label::before {
     border-right-color: cyan;
   }
-  
-  // .fixedLabel{
-  //   white-space: nowrap;
-  //   color: blue
-  //   }

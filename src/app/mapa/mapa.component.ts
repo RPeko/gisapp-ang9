@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import 'leaflet-easyprint';
@@ -21,14 +21,11 @@ import { DialogService } from 'src/providers/dialog.service';
 import { LinijeService } from 'src/providers/linije.service';
 import { Layer } from 'src/models/layer';
 
-
-
 @Component({
   selector: 'app-mapa',
   templateUrl: './mapa.component.html',
   styleUrls: ['./mapa.component.scss']
 })
-
 
 export class MapaComponent implements OnInit {
   mymap: L.Map;
@@ -43,6 +40,11 @@ export class MapaComponent implements OnInit {
   rasvetaMarkers = L.markerClusterGroup({ disableClusteringAtZoom: 18 });
   loadedLayers: number[] = [];
   baseLayerControl: L.Control;
+  observer = new ResizeObserver(entries => {
+    entries.forEach(entry => {
+      this.mymap.invalidateSize();
+    });
+  });
   baseMaps =
     {
       'Esri Topo':
@@ -62,7 +64,7 @@ export class MapaComponent implements OnInit {
             // tslint:disable-next-line:max-line-length
             attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
           })
-    };
+    };  
 
   constructor(
     private eventEmitter: EventEmitterService,
@@ -79,6 +81,7 @@ export class MapaComponent implements OnInit {
     this.mymap = L.map('lmapa', { zoomSnap: 0.2, zoomControl: false })
       .setView(L.latLng(this.KO.centarx, this.KO.centary), this.KO.zoom);
     this.baseMaps['Esri Topo'].addTo(this.mymap);
+    this.observer.observe(document.querySelector(".map-container"));
     this.eventEmitter.KOChange.subscribe((ko: KO) => {
       // console.log(JSON.stringify(ko));
       this.KO = ko;
@@ -466,4 +469,5 @@ export class MapaComponent implements OnInit {
         break;
     }
   }
+
 }

@@ -61,7 +61,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     MapaComponent,
     DialogLegendComponent,
     DialogDetailsComponent,
-    DialogLayerPreviewComponent
+    DialogLayerPreviewComponent,
   ],
   imports: [
     BrowserModule,

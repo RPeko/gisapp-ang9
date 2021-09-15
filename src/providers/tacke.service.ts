@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Tacka } from '../models/tacka';
-import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
 import { KO } from 'src/models/ko';
 import { Layer } from 'src/models/layer';

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { KO } from '../models/ko';
-import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
 
 

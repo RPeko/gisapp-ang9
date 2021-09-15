@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Kategorija } from '../models/kategorija';
-import { retry } from 'rxjs/operators';
 import { GlobalVars } from './globalVars';
 
 @Injectable()
