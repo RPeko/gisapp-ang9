@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import 'leaflet-easyprint';
@@ -20,6 +20,17 @@ import { DialogDetailsComponent } from '../dialog-details/dialog-details.compone
 import { DialogService } from 'src/providers/dialog.service';
 import { LinijeService } from 'src/providers/linije.service';
 import { Layer } from 'src/models/layer';
+
+const wmsRGZAdreseURL = 'http://93.87.76.62:2484/geoserver/vrbasgis/wms?version=1.3.0&'
+const wmsRGZAdreseOptions = {
+                    crs: L.CRS.EPSG4326,
+                    layers: ["Ulica", "Kucni_broj"],
+                    format: "image/png",
+                    transparent: true,
+                    zIndex: 2,
+                    version: "1.3.0",
+                    minZoom: 17
+                  }
 
 @Component({
   selector: 'app-mapa',
@@ -45,13 +56,17 @@ export class MapaComponent implements OnInit {
       this.mymap.invalidateSize();
     });
   });
+  rgzLayerKucniBroj = L.tileLayer.wms(wmsRGZAdreseURL, wmsRGZAdreseOptions);
+  ctrlKucniBroj: any;
+  ucitanKucniBroj = false;
   baseMaps =
     {
       'Esri Topo':
       L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
         {
           // tslint:disable-next-line:max-line-length
-          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+          attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community',
+          opacity:0.5
         }),
       'Openstreet mapnik':
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -468,6 +483,16 @@ export class MapaComponent implements OnInit {
 
         break;
     }
+  }
+
+  toggleRGZ(){
+    if (this.ucitanKucniBroj) {
+      this.mymap.removeLayer(this.ctrlKucniBroj);
+    } else {
+      this.ctrlKucniBroj = this.rgzLayerKucniBroj.addTo(this.mymap);
+    }
+    this.ucitanKucniBroj = !this.ucitanKucniBroj;
+    console.log("Ucitan: " + this.ucitanKucniBroj);
   }
 
 }

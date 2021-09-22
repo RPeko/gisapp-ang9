@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { StorageModule } from '@ngx-pwa/local-storage';
 import { FormsModule } from '@angular/forms';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import { AppRoutingModule } from './app-routing.module';
 import { EventEmitterService } from 'src/providers/event-emitter.service';
@@ -71,6 +72,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     FormsModule,
     AngularMaterialModule,
     ColorPickerModule,
+    MatButtonToggleModule,
     StorageModule.forRoot({
       IDBNoWrap: true,
     }),
