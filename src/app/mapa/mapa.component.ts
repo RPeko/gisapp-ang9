@@ -21,7 +21,7 @@ import { DialogService } from 'src/providers/dialog.service';
 import { LinijeService } from 'src/providers/linije.service';
 import { Layer } from 'src/models/layer';
 
-const wmsRGZAdreseURL = 'http://93.87.76.62:2484/geoserver/vrbasgis/wms?version=1.3.0&'
+const wmsRGZAdreseURL = 'https://www.vrbasgis.net:8443/geoserver/vgis/wms?version=1.3.0&'
 const wmsRGZAdreseOptions = {
                     crs: L.CRS.EPSG4326,
                     layers: ["Ulica", "Kucni_broj"],
