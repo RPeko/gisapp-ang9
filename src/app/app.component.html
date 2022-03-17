@@ -52,6 +52,7 @@
           </ng-container>
         </ng-container>
       </mat-list>
+      <mat-checkbox class="rgzAdrese" [(ngModel)]="ucitaneRGZAdrese" (click)="toggleRGZAdrese()">Adrese  ®RGZ</mat-checkbox>
     </div>
     <mat-menu #menuKO="matMenu">
       <button mat-menu-item *ngFor="let KO of listaKO" (click)="promeniKO(KO)">{{KO.nazivKO}}</button>

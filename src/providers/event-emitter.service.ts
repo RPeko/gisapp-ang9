@@ -10,5 +10,6 @@ export class EventEmitterService {
   KOChange = new EventEmitter();
   layerSwitch = new EventEmitter();
   layerPreviewChange = new EventEmitter();
+  rgzAdreseSwitch = new EventEmitter();
 }
 

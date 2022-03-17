@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   currentKO = ' (Vrbas-grad)';
   poruka1 = '';
   poruka2 = '';
+  ucitaneRGZAdrese = false;
 
   listaKO: KO[] = [
     { idKO: 7, sifraKO: '013', nazivKO: 'Vrbas', rBrKO: 1, centarx: 45.57185, centary: 19.640113, zoom: 14 },
@@ -233,6 +234,8 @@ export class AppComponent implements OnInit {
   }
 
   removeAllLayers() {
+    this.eventEmitter.rgzAdreseSwitch.emit(true);
+    this.ucitaneRGZAdrese = false;
     this.menuLayers.forEach(ml => ml.checked = false);
     this.storageMap.set('mnLayers', this.menuLayers).subscribe();
     this.listaKat.forEach(kat => kat.layers.forEach(l => l.filteri.forEach(f => f.searchstring = '')));
@@ -248,6 +251,10 @@ export class AppComponent implements OnInit {
 
   displayLegend(l: Layer) {
     this.dialogService.displayLegend(l);
+  }
+
+  toggleRGZAdrese(){
+    this.eventEmitter.rgzAdreseSwitch.emit(this.ucitaneRGZAdrese);
   }
 
 }

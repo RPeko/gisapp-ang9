@@ -58,7 +58,6 @@ export class MapaComponent implements OnInit {
   });
   rgzLayerKucniBroj = L.tileLayer.wms(wmsRGZAdreseURL, wmsRGZAdreseOptions);
   ctrlKucniBroj: any;
-  ucitanKucniBroj = false;
   baseMaps =
     {
       'Esri Topo':
@@ -125,6 +124,7 @@ export class MapaComponent implements OnInit {
       position: 'topright',
       sizeModes: ['A4Portrait', 'A4Landscape']
   }).addTo(this.mymap);
+  this.eventEmitter.rgzAdreseSwitch.subscribe((b: Boolean)=> this.toggleRGZ(b));
   }
 
 
@@ -485,14 +485,13 @@ export class MapaComponent implements OnInit {
     }
   }
 
-  toggleRGZ(){
-    if (this.ucitanKucniBroj) {
-      this.mymap.removeLayer(this.ctrlKucniBroj);
-    } else {
+  toggleRGZ(b:Boolean){
+    if (!b) {
       this.ctrlKucniBroj = this.rgzLayerKucniBroj.addTo(this.mymap);
+      this.mymap.setZoom(17);
+    } else {
+      this.mymap.removeLayer(this.ctrlKucniBroj);
     }
-    this.ucitanKucniBroj = !this.ucitanKucniBroj;
-    console.log("Ucitan: " + this.ucitanKucniBroj);
   }
 
 }
